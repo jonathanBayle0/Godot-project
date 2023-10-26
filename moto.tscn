@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://uh271vgqf7me"]
+
+[ext_resource type="Script" path="res://Moto3.gd" id="1_0j77b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhlr8"]
+albedo_color = Color(0.776471, 0.156863, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_jnk6m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3g6m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g61k7"]
+albedo_color = Color(0.286275, 0.521569, 0.431373, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3iav4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15ot2"]
+albedo_color = Color(0.286275, 0.521569, 0.431373, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bk3gh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sodt6"]
+albedo_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_07kct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te6sw"]
+albedo_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[node name="Moto" type="VehicleBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 320.107, -1.47852, 340.482)
+gravity_scale = 4.0
+script = ExtResource("1_0j77b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3, 8.74228e-08, 0, -2.62268e-07, -1, 0, 0, 0, 0.5, 0, 3.33029, 0)
+material_override = SubResource("StandardMaterial3D_vhlr8")
+mesh = SubResource("PrismMesh_jnk6m")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.229813, -0.462807, 0, 0.192836, 0.551552, 0, 0, 0, 0.3, 0.962843, 2.80287, -0.00485545)
+mesh = SubResource("CylinderMesh_3g6m4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.229813, 0.462807, 0, -0.192836, 0.551552, 0, 0, 0, 0.3, -1.10912, 2.80287, -0.00485545)
+mesh = SubResource("CylinderMesh_3g6m4")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0939693, -0.0718242, 0, 0.034202, 0.197335, 0, 0, 0, 0.1, -1.16736, 4.00679, 0)
+material_override = SubResource("StandardMaterial3D_g61k7")
+mesh = SubResource("CylinderMesh_3iav4")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, -2.64454e-08, -0.1, 0, 0.605, -4.37114e-09, -1.2439, 4.19503, 0)
+material_override = SubResource("StandardMaterial3D_15ot2")
+mesh = SubResource("CylinderMesh_3iav4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.25, 0, 0, 0, 3.25, 0, 0, 0, 3.25, 0, 3.23, 0)
+shape = SubResource("BoxShape3D_bk3gh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.91706, -0.0658127, 0.39328, 0, 0.986286, 0.165048, -0.398749, 0.151359, -0.904483, -2.81598, 11.3134, -22.453)
+
+[node name="RoueAvant" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-5.3765e-08, 0, -1.23, 0, 1.23, 0, 1.23, 0, -5.3765e-08, -1.47638, 2.24395, -0.00613403)
+rotation_edit_mode = 1
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="RoueAvant"]
+transform = Transform3D(4.44221e-08, 0.2, -1.53451e-07, 1.01626, -8.74228e-09, -4.15043e-21, -6.70756e-15, -3.01992e-08, -1.01626, 0.00576782, 0.00419521, -0.014801)
+material_override = SubResource("StandardMaterial3D_sodt6")
+mesh = SubResource("CylinderMesh_07kct")
+skeleton = NodePath("../..")
+
+[node name="RoueArrière" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-5.28908e-08, 0, -1.21, 0, 1.21, 0, 1.21, 0, -5.28908e-08, 1.38318, 2.24835, 0)
+rotation_edit_mode = 1
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RoueArrière"]
+transform = Transform3D(4.51564e-08, 0.2, -1.55987e-07, 1.03306, -8.74228e-09, -4.15043e-21, -6.81843e-15, -3.01992e-08, -1.03306, 0.000762939, 0.000628233, 0.0119019)
+material_override = SubResource("StandardMaterial3D_te6sw")
+mesh = SubResource("CylinderMesh_07kct")
+skeleton = NodePath("../..")

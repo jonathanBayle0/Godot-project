@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx76lw8gf2jgn"]
+
+[ext_resource type="Texture2D" uid="uid://ci73udlxu5yp4" path="res://landscape.jpg" id="1_e764f"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5aous"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g34jm"]
+albedo_texture = ExtResource("1_e764f")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yt1s7"]
+
+[node name="Mur" type="StaticBody3D"]
+transform = Transform3D(-8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 3.82137e-16, 286.581, 13.798, 330.188)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_5aous")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 4.54747e-13, 0, -4.54747e-13, 100, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_g34jm")
+mesh = SubResource("PlaneMesh_yt1s7")
