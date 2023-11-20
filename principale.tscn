@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://buw3pnxhomftg"]
+[gd_scene load_steps=23 format=3 uid="uid://buw3pnxhomftg"]
 
 [ext_resource type="Texture2D" uid="uid://bvvnmr0jfbh2e" path="res://excavated_soil_wall_diff_4k.jpg" id="1_ki07r"]
 [ext_resource type="PackedScene" uid="uid://cx76lw8gf2jgn" path="res://mur.tscn" id="2_ljws2"]
@@ -41,6 +41,12 @@ albedo_color = Color(0.286275, 0.521569, 0.431373, 1)
 albedo_color = Color(0.286275, 0.521569, 0.431373, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bk3gh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m5bn0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3qtyb"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_j5kva"]
 
 [node name="Principale" type="Node3D"]
 
@@ -193,3 +199,14 @@ skeleton = NodePath("../..")
 
 [node name="car" parent="." instance=ExtResource("4_1ptf6")]
 transform = Transform3D(-0.991282, 0, 0.131755, 0, 1, 0, -0.131755, 0, -0.991282, 331.327, 3.77007, 341.882)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 315.545, -113.713, -2.40995)
+physics_material_override = SubResource("PhysicsMaterial_m5bn0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_3qtyb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(51.635, 0, 0, 0, 51.635, 0, 0, 0, 51.635, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_j5kva")

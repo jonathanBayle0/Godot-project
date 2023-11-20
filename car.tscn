@@ -12,9 +12,9 @@ points = PackedVector3Array(-0.77381, 0.297507, -1.52351, 0.73229, -0.25, 1.3968
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o01y8"]
-top_radius = 0.4
-bottom_radius = 0.4
-height = 0.25
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.5
 radial_segments = 12
 
 [sub_resource type="BoxMesh" id="BoxMesh_dbvur"]
