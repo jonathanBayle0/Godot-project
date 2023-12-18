@@ -20,7 +20,6 @@ func _process(delta):
 	Global.temps_debut += delta 
 	
 	%Camera3D.position = position + Vector3(30,20,-20)
-#	%CurrentTimeLabel.text = "Temps : " + str(int(Global.temps_final)) + " secondes"
 	if Input.is_action_pressed("reset"):
 		position = start_pos
 		rotation = start_rotation
@@ -29,12 +28,24 @@ func _process(delta):
 		
 	if Input.is_action_pressed("ui_left"):
 		# Inclinez l'avant de la voiture vers le haut
-		rotation = rotation + Vector3(-0.01, 0, 0)
+#		rotation = rotation + Vector3(-0.01, 0, 0)
+		rotate_x(deg_to_rad(0.5))
 	# Ajustez l'angle selon votre préférence
 	elif Input.is_action_pressed("ui_right"):
 		# Inclinez l'avant de la voiture vers le haut
-		rotation = rotation + Vector3(0.01, 0, 0)
+		rotate_x(deg_to_rad(-0.5))
 	else:
 		engine_force = Input.get_axis("ui_up", "ui_down") * ENGINE_POWER
 		
 
+
+func restart():
+	position = start_pos
+	rotation = start_rotation
+	engine_force = 0
+	linear_velocity = Vector3(0,0,0)
+
+
+func _on_out_of_bound_area_body_entered(body):
+	if body.is_in_group("voiture"):
+		restart()

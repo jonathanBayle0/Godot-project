@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://buw3pnxhomftg"]
+[gd_scene load_steps=37 format=3 uid="uid://buw3pnxhomftg"]
 
 [ext_resource type="Texture2D" uid="uid://bvvnmr0jfbh2e" path="res://excavated_soil_wall_diff_4k.jpg" id="1_ki07r"]
 [ext_resource type="PackedScene" uid="uid://cx76lw8gf2jgn" path="res://mur.tscn" id="2_ljws2"]
@@ -90,6 +90,8 @@ radial_segments = 12
 
 [sub_resource type="BoxMesh" id="BoxMesh_8hd1v"]
 size = Vector3(1.17, 0.62, 1.21)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8o2bl"]
 
 [node name="Principale" type="Node3D"]
 
@@ -369,6 +371,15 @@ transform = Transform3D(2.195, 0, 2.23517e-08, 0, 2.195, 0, -2.23517e-08, 0, 2.1
 mesh = SubResource("BoxMesh_8hd1v")
 
 [node name="goal" parent="." instance=ExtResource("6_nm3tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298, 10, 182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298, 10, 171.343)
 
 [node name="CurrentTime" parent="." instance=ExtResource("7_gsffn")]
+
+[node name="outOfBoundArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 356.434, -40.5505, 170.192)
+
+[node name="outOfBound" type="CollisionShape3D" parent="outOfBoundArea"]
+transform = Transform3D(72.645, 0, 0, 0, 72.645, 0, 0, 0, 72.645, 0, -12.564, 0)
+shape = SubResource("WorldBoundaryShape3D_8o2bl")
+
+[connection signal="body_entered" from="outOfBoundArea" to="carMoving" method="_on_out_of_bound_area_body_entered"]

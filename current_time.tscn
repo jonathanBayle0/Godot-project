@@ -28,3 +28,13 @@ label_settings = SubResource("LabelSettings_5rme5")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_o3iod")
+
+[node name="infoLabel" type="Label" parent="Panel"]
+offset_left = -29.0
+offset_top = 105.0
+offset_right = 381.0
+offset_bottom = 208.0
+text = "R: Recommencer"
+label_settings = SubResource("LabelSettings_5rme5")
+horizontal_alignment = 1
+vertical_alignment = 1

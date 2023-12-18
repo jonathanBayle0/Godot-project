@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://0x76gs2rus4f"]
+[gd_scene load_steps=8 format=3 uid="uid://0x76gs2rus4f"]
 
+[ext_resource type="Script" path="res://win_screen.gd" id="1_ags2t"]
 [ext_resource type="Texture2D" uid="uid://bvvnmr0jfbh2e" path="res://excavated_soil_wall_diff_4k.jpg" id="1_hdqix"]
 [ext_resource type="Script" path="res://TimeLabel.gd" id="2_387gd"]
 
@@ -35,6 +36,34 @@ outline_size = 2
 shadow_size = 14
 shadow_color = Color(0, 0, 0, 0.945098)
 
+[sub_resource type="FontFile" id="FontFile_erofu"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/100/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+cache/0/60/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/60/0 = Vector2(0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pmgga"]
+
 [node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -42,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ags2t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -79,3 +109,27 @@ offset_bottom = 729.52
 label_settings = SubResource("LabelSettings_wkuqe")
 horizontal_alignment = 1
 script = ExtResource("2_387gd")
+
+[node name="RejouerButton" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1236.0
+offset_top = 1235.0
+offset_right = 1732.0
+offset_bottom = 1358.0
+theme_override_fonts/font = SubResource("FontFile_erofu")
+theme_override_font_sizes/font_size = 60
+text = "Rejouer"
+icon = SubResource("ViewportTexture_pmgga")
+
+[node name="QuitterButton" type="Button" parent="TextureRect"]
+offset_left = 1236.0
+offset_top = 1414.0
+offset_right = 1732.0
+offset_bottom = 1537.0
+theme_override_fonts/font = SubResource("FontFile_erofu")
+theme_override_font_sizes/font_size = 60
+text = "Quitter"
+icon = SubResource("ViewportTexture_pmgga")
+
+[connection signal="pressed" from="TextureRect/RejouerButton" to="." method="_on_rejouer_button_pressed"]
+[connection signal="pressed" from="TextureRect/QuitterButton" to="." method="_on_quitter_button_pressed"]
