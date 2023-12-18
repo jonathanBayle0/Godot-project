@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8uvmh6ed1df7"]
+
+[ext_resource type="Script" path="res://CurrentTimeLabel.gd" id="1_o3iod"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5rme5"]
+font_size = 40
+
+[node name="CurrentTime" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 413.0
+offset_bottom = 103.0
+
+[node name="CurrentTimeLabel" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 410.0
+offset_bottom = 103.0
+text = "Temps : "
+label_settings = SubResource("LabelSettings_5rme5")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_o3iod")

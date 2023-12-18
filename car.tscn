@@ -19,7 +19,7 @@ radial_segments = 12
 
 [sub_resource type="BoxMesh" id="BoxMesh_dbvur"]
 
-[node name="car" type="VehicleBody3D"]
+[node name="carMoving" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44141, 0)
 gravity_scale = 4.0
 script = ExtResource("1_plgh0")
@@ -85,3 +85,5 @@ mesh = SubResource("CylinderMesh_o01y8")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316621, -0.963419)
 mesh = SubResource("BoxMesh_dbvur")
+
+[node name="Node3D" type="Node3D" parent="."]
