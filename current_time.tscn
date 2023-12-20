@@ -30,6 +30,7 @@ vertical_alignment = 1
 script = ExtResource("1_o3iod")
 
 [node name="infoLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = -29.0
 offset_top = 105.0
 offset_right = 381.0

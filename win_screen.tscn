@@ -4,10 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bvvnmr0jfbh2e" path="res://excavated_soil_wall_diff_4k.jpg" id="1_hdqix"]
 [ext_resource type="Script" path="res://TimeLabel.gd" id="2_387gd"]
 
-[sub_resource type="FontFile" id="FontFile_0v3is"]
+[sub_resource type="FontFile" id="FontFile_nw17d"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/78/0 = Vector2(0, 0)
 cache/0/78/0/ascent = 0.0
 cache/0/78/0/descent = 0.0
 cache/0/78/0/underline_position = 0.0
@@ -18,18 +25,11 @@ cache/0/78/0/glyphs/0/offset = Vector2(0, 0)
 cache/0/78/0/glyphs/0/size = Vector2(0, 0)
 cache/0/78/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
 cache/0/78/0/glyphs/0/texture_idx = -1
-cache/0/78/0/kerning_overrides/78/0 = Vector2(0, 0)
 cache/0/78/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/78/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/78/0/kerning_overrides/78/0 = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wkuqe"]
-font = SubResource("FontFile_0v3is")
+font = SubResource("FontFile_nw17d")
 font_size = 78
 font_color = Color(1, 0.984314, 0.701961, 1)
 outline_size = 2
@@ -122,6 +122,7 @@ text = "Rejouer"
 icon = SubResource("ViewportTexture_pmgga")
 
 [node name="QuitterButton" type="Button" parent="TextureRect"]
+layout_mode = 0
 offset_left = 1236.0
 offset_top = 1414.0
 offset_right = 1732.0
